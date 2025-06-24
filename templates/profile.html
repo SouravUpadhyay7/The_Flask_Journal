@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="posts-container">
+    <h2>Your Posts ({{ blogs|length }})</h2>
+    {% if blogs %}
+      <ul class="posts-list">
+        {% for blog in blogs %}
+          <li class="post-item">
+            <div class="post-header">
+              <a href="{{ url_for('blog_detail', id=blog.id) }}" class="post-title">
+                {{ blog.title }}
+              </a>
+              <small class="post-date">({{ blog.created_at.strftime('%B %d, %Y') }})</small>
+            </div>
+            {% if blog.content %}
+              <p class="post-preview">{{ blog.content[:100] }}...</p>
+            {% endif %}
+            <div class="post-actions">
+              <a href="{{ url_for('edit_post', id=blog.id) }}">Edit</a>
+              <a href="{{ url_for('delete_post', id=blog.id) }}" onclick="return confirm('Are you sure?')">Delete</a>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <div class="no-posts">
+        <p>You haven't created any posts yet.</p>
+        <a href="{{ url_for('create_blog') }}" class="btn-primary">Create Your First Post</a>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

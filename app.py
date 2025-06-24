@@ -28,6 +28,13 @@ def home():
     all_blogs = Blog.query.all()
     return render_template('index.html', all_blogs = all_blogs)
 
+@app.route('/profile')
+def profile():
+    if 'user' not in session:
+        return redirect('/login')
+    user_blogs = Blog.query.filter_by(author=session['user']).all()
+    return render_template('profile.html', blogs=user_blogs)
+
 @app.route('/register', methods = ['POST', 'GET'])
 def register():
     if request.method == 'POST':

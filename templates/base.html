@@ -260,7 +260,14 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">The Flask Journal</a>
+          <!-- Add inside your navigation bar -->
+
           <div class="navbar-nav">
+              {% if session.get('user') %}
+    <a href="{{ url_for('profile') }}" class="nav-link">
+      <i class="fas fa-user-circle me-1"></i>Profile
+    </a>
+  {% endif %}
             {% if not 'user' in session %}
             <a href="/login" class="nav-link">
               <i class="fas fa-sign-in-alt me-1"></i>Login
