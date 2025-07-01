@@ -1,5 +1,14 @@
 # The Flask Journal
 
+
+
+
+
+
+https://github.com/user-attachments/assets/4045dca1-d368-47ea-9224-5279cdbf9ca5
+
+
+
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
